@@ -1,0 +1,8 @@
+env
+*.egg-info
+
+.*.s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
