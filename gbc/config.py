@@ -15,13 +15,13 @@ class Config(object):
             "buildpackage": "buildpackage",
             "buildpackage_environ": {}
             }
-        self.output = {}
+        self.dch     = {"dists": {}, 'options': []}
+        self.output  = {}
         self.publish = {}
         self.verbose = False
 
         self.read_default_config()
 
-        self.read_config(args)
         self.read_config(args)
 
         self.verbose = self.verbose | args.verbose
@@ -32,20 +32,22 @@ class Config(object):
         if os.path.exists(conf_file):
             self._read_config(file(conf_file, 'r'))
 
+    def read_debian_config(self):
+        debian_config = os.path.join(self.home_dir, "debian/gbcrc")
+        if os.path.exists(debian_config):
+            self._read_config(file(debian_config, 'r'))
+
     def read_config(self, args):
         if args.config is not None:
-            stream = file(args.config, 'r')
+            stream = file(args.config[0], 'r')
 
             self._read_config(stream)
-        else:
-            alternate_config = os.path.join(args.home_dir[0], "debian/gbcrc")
-            if os.path.exists(alternate_config):
-                self._read_config(file(alternate_config, 'r'))
 
     def _read_config(self, config):
         data = load(config, Loader=Loader)
 
-        self.verbose = data['verbose'] | False
+        if data.has_key('verbose'):
+            self.verbose = data['verbose'] | False
 
         if data.has_key('lib_file'):
             self.lib_file = data['lib_file']
@@ -61,6 +63,18 @@ class Config(object):
                 for k, v in data['git']['buildpackage_environ'].items():
                     if isinstance(v, str):
                         self.git['buildpackage_environ'][k] = v
+
+        if data.has_key('dch') and isinstance(data['dch'], dict):
+            dch = data['dch']
+            if dch.has_key('options') and isinstance(dch['options'], list):
+                self.dch['options'] = self.dch['options'] + dch['options']
+            if dch.has_key('dists') and isinstance(dch['dists'], dict):
+                if dch['dists'].has_key('stable'):
+                    self.dch['dists']['stable'] = str(dch['dists']['stable'])
+                if dch['dists'].has_key('testing'):
+                    self.dch['dists']['testing'] = str(dch['dists']['testing'])
+                if dch['dists'].has_key('unstable'):
+                    self.dch['dists']['unstable'] = str(dch['dists']['unstable'])
 
         if data.has_key('output') and isinstance(data['output'], dict):
             if data['output'].has_key('stable'):

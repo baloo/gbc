@@ -3,4 +3,11 @@ publish:
   testing: "%(home_dir)s/debian/.gbc/publish.sh testing"
   unstable: "%(home_dir)s/debian/.gbc/publish.sh unstable"
 
+dch:
+  dists:
+    stable: squeeze
+    testing: squeeze-testing
+    unstable: squeeze-unstable
 
+
+# vim: ts=2 sw=2 expandtab:

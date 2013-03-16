@@ -22,8 +22,6 @@ def main():
 
     config = gbc.config.Config(args)
 
-    print config
-
     try:
         repo = gbc.gitrepo.Repo(config)
     except gbc.gitrepo.NotGitRepo as e:
@@ -32,9 +30,12 @@ def main():
 
 
     build = gbc.build.Builder(config, repo)
-
     build.stable()
+
+    build = gbc.build.Builder(config, repo)
     build.testing()
+
+    build = gbc.build.Builder(config, repo)
     build.unstable()
 
     #print repo.stable_targets()
