@@ -1,0 +1,6 @@
+publish:
+  stable: "%(home_dir)s/debian/.gbc/publish.sh stable"
+  testing: "%(home_dir)s/debian/.gbc/publish.sh testing"
+  unstable: "%(home_dir)s/debian/.gbc/publish.sh unstable"
+
+
