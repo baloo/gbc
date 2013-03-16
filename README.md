@@ -55,6 +55,9 @@ python setup.py develop
 
 
 
+I don't know where to put this
+------------------------------
 
+```
 cowbuilder --create --distribution squeeze --debootstrapopts --arch --debootstrapopts amd64 --debootstrap cdebootstrap --basepath /var/cache/pbuilder/base-squeeze-amd64.cow
-
+```
