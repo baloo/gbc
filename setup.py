@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-setup(name='git-continuous-buildpackage',
+setup(name='gbc',
       description="Git buildpackage for jenkins",
       long_description="Builds and releases new packages with jenkins",
       version="0.0.1",
