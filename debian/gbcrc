@@ -1,0 +1,18 @@
+git:
+  buildpackage_options:
+    - "--git-ignore-new"
+
+publish:
+  stable: "%(home_dir)s/debian/.gbc/publish.sh stable"
+  testing: "%(home_dir)s/debian/.gbc/publish.sh testing"
+  unstable: "%(home_dir)s/debian/.gbc/publish.sh unstable"
+
+
+dch:
+  dists:
+    stable: squeeze
+    testing: squeeze
+    unstable: squeeze
+
+
+# vim: ts=2 sw=2 expandtab:
