@@ -10,9 +10,9 @@ publish:
 
 dch:
   dists:
-    stable: squeeze
-    testing: squeeze
-    unstable: squeeze
+    stable: stable
+    testing: testing
+    unstable: unstable
 
 
 # vim: ts=2 sw=2 expandtab:
