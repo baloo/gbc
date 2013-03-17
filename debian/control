@@ -1,0 +1,15 @@
+Source: gbc
+Section: vcs
+Priority: extra
+Maintainer: superbaloo <superbaloo@vynka>
+Build-Depends: debhelper (>= 8.0.0), python-all (>= 2.6.6-3~)
+Standards-Version: 3.9.3
+Homepage: https://github.com/baloo/gbc
+#Vcs-Git: git://git.debian.org/collab-maint/gbc.git
+#Vcs-Browser: http://git.debian.org/?p=collab-maint/gbc.git;a=summary
+
+Package: gbc
+Architecture: any
+Depends: python (>= 2.6.6-3~), git-buildpackage, ${shlibs:Depends}, ${misc:Depends}
+Description: <insert up to 60 chars description>
+ <insert long description, indented with spaces>
