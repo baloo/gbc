@@ -1,8 +1,10 @@
-#!/bin/sh
+#!/bin/sh -x
 
 here=$(cd `dirname $0`; pwd)
+dist=$1
+shift
 
-case $1 in
+case $dist in
   stable)
     repo=gbc-stable
     ;;
@@ -17,9 +19,7 @@ case $1 in
     exit 1
 esac
 
-dist=$1
-shift
 
 debsign -k707EFD41 $*
 
-dput --config $here/dput.cf $dist $*
+dput --config $here/dput.cf $repo $*
