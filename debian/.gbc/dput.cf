@@ -1,0 +1,28 @@
+[gbc-stable]
+fqdn                    = debian.zenexity.com
+method                  = rsync
+incoming                = /srv/reprepro/gbc-incoming/squeeze
+login                   = reprepro-gbc
+hash                    = sha
+#ssh_config_options =
+#  Port 2222
+
+[gbc-testing]
+fqdn                    = debian.zenexity.com
+method                  = rsync
+incoming                = /srv/reprepro/gbc-incoming/squeeze-testing
+login                   = reprepro-gbc
+hash                    = sha
+#ssh_config_options =
+#  Port 2222
+
+[gbc-unstable]
+fqdn                    = debian.zenexity.com
+method                  = rsync
+incoming                = /srv/reprepro/gbc-incoming/squeeze-unstable
+login                   = reprepro-gbc
+hash                    = sha
+ssh_config_options =
+   LogLevel DEBUG3
+#  Port 2222
+
