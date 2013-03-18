@@ -7,6 +7,7 @@ Standards-Version: 3.9.3
 Homepage: https://github.com/baloo/gbc
 #Vcs-Git: git://git.debian.org/collab-maint/gbc.git
 #Vcs-Browser: http://git.debian.org/?p=collab-maint/gbc.git;a=summary
+X-Python-Version: >= 2.6, << 3.0
 
 Package: gbc
 Architecture: any
