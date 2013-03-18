@@ -1,0 +1,1 @@
+%gbc ALL=(root) NOPASSWD: /usr/sbin/cowbuilder
