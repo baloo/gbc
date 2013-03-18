@@ -3,13 +3,13 @@
 here=$(cd `dirname $0`; pwd)
 
 case $1 in
-  squeeze)
+  stable)
     repo=gbc-stable
     ;;
-  squeeze-testing)
+  testing)
     repo=gbc-testing
     ;;
-  squeeze-unstable)
+  unstable)
     repo=gbc-unstable
     ;;
   *)
